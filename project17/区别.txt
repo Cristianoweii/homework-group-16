@@ -1,0 +1,55 @@
+在声明权限时，Firefox使用"permissions"字段，而谷歌浏览器使用"permissions"字段或"optional_permissions"字段来声明不同类型的权限。
+firefox:
+  "manifest_version": 2,
+  "name": "Your Password Manager",
+  "version": "1.0",
+  "description": "A password manager extension for Firefox",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+google:
+"manifest_version": 2,
+  "name": "Your Password Manager",
+  "version": "1.0",
+  "description": "A password manager extension for Chrome",
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+在获取当前选项卡信息时，Firefox使用'browser.tabs' API，而谷歌浏览器使用'chrome.tabs' API。
+firefox:
+browser.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+  const currentTab = tabs[0];
+});
+google:
+chrome.tabs.query({ currentWindow: true, active: true }, function(tabs) {
+  const currentTab = tabs[0];
+});
+对登录表单提交事件的监听和内容脚本的注入的不同
+firefox:
+document.addEventListener("submit", function(event) {
+});
+google:
+document.addEventListener("submit", function(event) {
+});

@@ -1,0 +1,1 @@
+直接运行可得到该hashwire的Root

@@ -1,0 +1,2 @@
+先运行Issuer文件，再运行Alice文件，此时双方建立连接，Issuer向Alice发送了s和签名
+再运行Bob文件，此时与Alice建立了连接，Alice向Bob发送了p和签名

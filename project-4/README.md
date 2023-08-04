@@ -1,0 +1,3 @@
+unoptimized-sm3.cpp为优化前的cpp
+optimized-sm3.cpp为优化后的cpp
+分别运行进行比较
